@@ -2,30 +2,20 @@ import React, { useState } from "react";
 import "../App.css";
 const Selectnumber = (props) => {
   const { setSelnum, selnum } = props;
+  const numbb = [1, 2, 3, 4, 5, 6];
   return (
     <div>
       <div className="mainButton">
-        <div className="buttons">
-          <button className="btnSecondary" onClick={() => setSelnum(1)}>
-            1
-          </button>
-          <button className="btnSecondary" onClick={() => setSelnum(2)}>
-            2
-          </button>
-          <button className="btnSecondary" onClick={() => setSelnum(3)}>
-            3
-          </button>
-          <button className="btnSecondary" onClick={() => setSelnum(4)}>
-            4
-          </button>
-          <button className="btnSecondary" onClick={() => setSelnum(5)}>
-            5
-          </button>
-          <button className="btnSecondary" onClick={() => setSelnum(6)}>
-            6
-          </button>
-          <h1>{selnum}</h1>
-        </div>
+        {numbb.map((val) => {
+          return (
+            <button
+              className={`btnSecondary ${selnum == val ? "active" : ""}`}
+              onClick={() => setSelnum(val)}
+            >
+              {val}
+            </button>
+          );
+        })}
 
         <p className="text">Select Numbers</p>
       </div>
